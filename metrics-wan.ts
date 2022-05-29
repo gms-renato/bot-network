@@ -22,7 +22,7 @@ app.get("/metrics", async (req: any, res: any) => {
     for (let key of keys) {
       const value: TrafficBandwidthWanOverallInterface = client.details[key];
       responses += `wan_download_details{name="${client.name}",type="${key}"} ${value.down}\n`;
-      responses += `wan_upload{name="${client.name}",type="${key}"} ${value.up}\n`;
+      responses += `wan_upload_details{name="${client.name}",type="${key}"} ${value.up}\n`;
     }
   }
   return res.send(responses);
